@@ -1,0 +1,30 @@
+<h3 style="text-align: center;">Regional DRM/DRR Projects</h3>
+
+
+<!--<p *ngFor="let p of projects">
+    {{p.name}}
+</p>
+-->
+
+
+<div *ngFor="let p of projects">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{p.name}}</mat-card-title>
+            <mat-card-subtitle>{{p.acronym}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image style="width: 500px !important; justify-content: center;" src="{{p.logo_url}}">
+        <mat-card-content>
+            <p style="text-align: justify;">
+                {{p.description}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button><a href="#">{{p.url}}</a></button>
+            <button mat-button>Like</button>
+            <button mat-button>Share</button>
+        </mat-card-actions>
+    </mat-card>
+    <br /><br />
+</div>

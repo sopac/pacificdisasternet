@@ -1,0 +1,67 @@
+<h3 style="text-align: center;">Pacific Damage and Loss Assessment Database</h3>
+
+
+<ngx-charts-bar-horizontal [view]="view" [scheme]="colorScheme" [results]="disastersType" [gradient]="gradient"
+    [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)"
+    (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+</ngx-charts-bar-horizontal>
+
+<br />
+
+<ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="disastersCountry" [gradient]="gradient"
+    [legend]="showLegend" [legendPosition]="legendPosition" [labels]="showLabels" [doughnut]="isDoughnut"
+    (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+</ngx-charts-pie-chart>
+
+<br />
+
+
+
+<br />
+
+
+<mat-table *ngIf="disasters" [dataSource]="disasters" style="width: 100%;" class="mat-elevation-z8">
+    <!-- Position Column -->
+
+    <ng-container matColumnDef="Date">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let disaster"> <a href="http://localhost:3000/pdalo?Date=eq.{{disaster.Date}}&Description_Of_Cause=eq.{{disaster.Description_Of_Cause}}">{{disaster.Date}}</a> </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Description_Of_Cause">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let disaster"> <b> {{disaster.Description_Of_Cause}} </b> </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Event">
+        <mat-header-cell *matHeaderCellDef> Event </mat-header-cell>
+        <mat-cell *matCellDef="let disaster"> {{disaster.Event}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Country">
+        <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+        <mat-cell *matCellDef="let disaster"> {{disaster.Country}} </mat-cell>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="Year">
+        <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+        <mat-cell *matCellDef="let disaster"> {{disaster.Year}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+
+
+<!--
+<p *ngFor="let d of disasters">
+    {{d.Event}}
+</p>
+-->

@@ -1,0 +1,107 @@
+~/Projects/pdn
+postgrest postgrest.conf 
+
+
+http://localhost:3000/pdalo?limit=100&order=Year.desc
+
+create view chart_disaster_country as select "Country" as "name", count(*) as "value" from pdalo group by "Country";
+create view chart_disaster_type as select "Event" as "name", count(*) as "value" from pdalo group by "Event";
+
+select "Country", count(*) from pdalo group by "Country";
+select "Event", count(*) from pdalo group by "Event";
+select "Year", count(*) from pdalo group by "Year" order by "Year";1
+
+
+ALTER TABLE pdalo ADD COLUMN "Year" INTEGER;
+select "Date", "Year" from pdalo;
+---update pdalo set "Year" = substring("Date", 0, 5)::INTEGER;
+
+
+
+http://localhost:3000/media?select=title&limit=10&order=id.asc
+
+create view count_document as
+select count(*) as "count" from document;
+
+select * from count_document;
+
+update document set featured=true where title  ILIKE % national plan %;
+
+
+http://localhost:3000/document?featured=eq.1&select=id,title
+
+http://localhost:3000/document?select=id,title,publicationyear,uploaddate&limit=10&order=id.desc
+
+
+http://localhost:3000/recent_alerts?select=id,title,gdacs_country,gdacs_eventtype
+
+CREATE TABLE Project (
+   id  SERIAL PRIMARY KEY,
+	name text NOT NULL,
+	acronym varchar(255),
+	description varchar(2500),
+	logo_url text,
+	url text,
+	active boolean
+);
+
+
+CREATE TABLE public.recent_alerts
+(
+    id integer NOT NULL,
+    title character varying(2500) COLLATE pg_catalog."default",
+title_detail character varying(2500) COLLATE pg_catalog."default",
+summary character varying(2500) COLLATE pg_catalog."default",
+summary_detail character varying(2500) COLLATE pg_catalog."default",
+links character varying(2500) COLLATE pg_catalog."default",
+gdacs_temporary character varying(2500) COLLATE pg_catalog."default",
+link character varying(2500) COLLATE pg_catalog."default",
+published character varying(2500) COLLATE pg_catalog."default",
+published_parsed character varying(2500) COLLATE pg_catalog."default",
+gdacs_iscurrent character varying(2500) COLLATE pg_catalog."default",
+gdacs_fromdate character varying(2500) COLLATE pg_catalog."default",
+gdacs_todate character varying(2500) COLLATE pg_catalog."default",
+gdacs_durationinweek character varying(2500) COLLATE pg_catalog."default",
+gdacs_year character varying(2500) COLLATE pg_catalog."default",
+tags character varying(2500) COLLATE pg_catalog."default",
+uid character varying(2500) COLLATE pg_catalog."default",
+guidislink character varying(2500) COLLATE pg_catalog."default",
+geo_lat character varying(2500) COLLATE pg_catalog."default",
+geo_long character varying(2500) COLLATE pg_catalog."default",
+geo_point character varying(2500) COLLATE pg_catalog."default",
+gdacs_bbox character varying(2500) COLLATE pg_catalog."default",
+gdacs_cap character varying(2500) COLLATE pg_catalog."default",
+gdacs_icon character varying(2500) COLLATE pg_catalog."default",
+gdacs_version character varying(2500) COLLATE pg_catalog."default",
+gdacs_eventtype character varying(2500) COLLATE pg_catalog."default",
+gdacs_alertlevel character varying(2500) COLLATE pg_catalog."default",
+gdacs_alertscore character varying(2500) COLLATE pg_catalog."default",
+gdacs_episodealertlevel character varying(2500) COLLATE pg_catalog."default",
+gdacs_episodealertscore character varying(2500) COLLATE pg_catalog."default",
+gdacs_eventname character varying(2500) COLLATE pg_catalog."default",
+gdacs_eventid character varying(2500) COLLATE pg_catalog."default",
+gdacs_episodeid character varying(2500) COLLATE pg_catalog."default",
+gdacs_calculationtype character varying(2500) COLLATE pg_catalog."default",
+gdacs_severity character varying(2500) COLLATE pg_catalog."default",
+gdacs_population character varying(2500) COLLATE pg_catalog."default",
+gdacs_vulnerability character varying(2500) COLLATE pg_catalog."default",
+gdacs_iso3 character varying(2500) COLLATE pg_catalog."default",
+gdacs_country character varying(2500) COLLATE pg_catalog."default",
+gdacs_glide character varying(2500) COLLATE pg_catalog."default",
+gdacs_mapimage character varying(2500) COLLATE pg_catalog."default",
+gdacs_maplink character varying(2500) COLLATE pg_catalog."default",
+gdacs_gtsimage character varying(2500) COLLATE pg_catalog."default",
+gdacs_gtslink character varying(2500) COLLATE pg_catalog."default",
+gdacs_resource character varying(2500) COLLATE pg_catalog."default",
+gdacs_title character varying(2500) COLLATE pg_catalog."default",
+gdacs_description character varying(2500) COLLATE pg_catalog."default",
+gdacs_acknowledgements character varying(2500) COLLATE pg_catalog."default",
+gdacs_accesslevel character varying(2500) COLLATE pg_catalog."default",
+gdacs_resources character varying(2500) COLLATE pg_catalog."default",
+   
+    CONSTRAINT recent_alert_pkey PRIMARY KEY (id),
+    
+);
+
+
+

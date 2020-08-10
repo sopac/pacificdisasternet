@@ -19,13 +19,25 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { DisasterComponent } from './disaster/disaster.component';
 import { ProjectComponent } from './project/project.component';
+import { DocumentComponent } from './document/document.component';
+import { MainComponent } from './main/main.component';
+import { ExpertComponent } from './expert/expert.component';
+import { NewsComponent } from './news/news.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { ShowDocumentComponent } from './show-document/show-document.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DisasterComponent,
-    ProjectComponent
+    ProjectComponent,
+    DocumentComponent,
+    MainComponent,
+    ExpertComponent,
+    NewsComponent,
+    CalendarComponent,
+    ShowDocumentComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { RecentAlerts } from './recent-alerts';
 import { Disaster } from './disaster';
 import { Project } from './project';
 import { Chart1 } from './chart1';
+import { Document } from './document';
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -27,6 +28,16 @@ export class AppService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
+
+
+  getDocument(id: number): Observable<Document[]> {
+    //document?id=eq.95984
+    const url = `${this.serviceUrl}`;
+    return this.http.get<Document[]>(url + "document?id=eq." + id).pipe(
+      tap(_ => this.log(`fetched single document`)),
+      catchError(this.handleError<Document[]>(`getDocument`))
+    );
+  }
 
   getProjects(): Observable<Project[]> {
     const url = `${this.serviceUrl}`;

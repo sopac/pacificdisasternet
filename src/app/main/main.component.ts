@@ -1,25 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Counter } from './counter';
-import { Featured } from './featured';
-import { LatestDocument } from './latest-document';
-import { RecentAlerts } from './recent-alerts';
-import { AppService } from './app.service';
+import { Counter } from '../counter';
+import { Featured } from '../featured';
+import { LatestDocument } from '../latest-document';
+import { RecentAlerts } from '../recent-alerts';
+import { AppService } from '../app.service';
 
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css']
 })
-export class AppComponent implements OnInit {
+export class MainComponent implements OnInit {
   title = 'Pacific Disaster Net and Pacific Damage Loss Assessment';
   value = 'Search across PDN...';
 
-  ngOnInit() {
-  }
-
-  /*
   documentCount: Counter[];
   disasterCount: Counter[];
   expertCount: Counter[];
@@ -69,8 +65,6 @@ export class AppComponent implements OnInit {
   getCalendarCount(): void {
     this.service.getCalendarCount().subscribe(calendarCount => this.calendarCount = calendarCount);
   }
-
-  */
 
 
 

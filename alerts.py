@@ -6,7 +6,6 @@ print(len(NewsFeed.entries))
 
 entry = NewsFeed.entries[1]
 
-
 print(entry.keys())
 
 countries = ["Fiji", "Tonga", "Vanuatu", "Papua New Guinea", "Guam", "Niue", "Solomon Islands", "New Caledonia", "Palau", "Marshall Islands"]

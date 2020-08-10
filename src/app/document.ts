@@ -1,0 +1,35 @@
+export class Document {
+    id: number;
+    bibliographynote: string;
+    catalougingsource: string;
+    corporateauthor: string;
+    description: string;
+    disaster?: any;
+    edition: string;
+    filename: string;
+    filesize: number;
+    generalnote: string;
+    geographicalareacode: string;
+    isbn: string;
+    issn: string;
+    legacyid: number;
+    physhicaldescription?: any;
+    placeofpublication: string;
+    publicationday: number;
+    publicationmonth: number;
+    publicationyear: number;
+    publisher: string;
+    relatedcorporations: string;
+    relatednames: string;
+    series: string;
+    sourceofacquisition: string;
+    tags?: any;
+    targetaudience?: any;
+    title: string;
+    uploaddate: string;
+    varianttitle: string;
+    language_id: number;
+    materialtype_id: number;
+    user_id: number;
+    featured: boolean;
+}

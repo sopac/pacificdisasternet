@@ -25,6 +25,11 @@ import { ExpertComponent } from './expert/expert.component';
 import { NewsComponent } from './news/news.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ShowDocumentComponent } from './show-document/show-document.component';
+import { ShowDisasterComponent } from './show-disaster/show-disaster.component';
+import { ShowCalendarComponent } from './show-calendar/show-calendar.component';
+import { ShowExpertComponent } from './show-expert/show-expert.component';
+import { ShowNewsComponent } from './show-news/show-news.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -37,7 +42,12 @@ import { ShowDocumentComponent } from './show-document/show-document.component';
     ExpertComponent,
     NewsComponent,
     CalendarComponent,
-    ShowDocumentComponent
+    ShowDocumentComponent,
+    ShowDisasterComponent,
+    ShowCalendarComponent,
+    ShowExpertComponent,
+    ShowNewsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

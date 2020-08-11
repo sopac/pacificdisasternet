@@ -24,9 +24,26 @@
 <mat-table *ngIf="disasters" [dataSource]="disasters" style="width: 100%;" class="mat-elevation-z8">
     <!-- Position Column -->
 
+    <!--
+    <ng-container matColumnDef="Id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let disaster"> <a href="http://localhost:3000/pdalo?Id=eq.{{disaster.Id}}">{{disaster.Id}}</a> </mat-cell>
+    </ng-container>
+    -->
+
     <ng-container matColumnDef="Date">
         <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-        <mat-cell *matCellDef="let disaster"> <a href="http://localhost:3000/pdalo?Date=eq.{{disaster.Date}}&Description_Of_Cause=eq.{{disaster.Description_Of_Cause}}">{{disaster.Date}}</a> </mat-cell>
+        <mat-cell *matCellDef="let disaster"> 
+            <!--
+            <a href="http://localhost:3000/pdalo?Date=eq.{{disaster.Date}}&Description_Of_Cause=eq.{{disaster.Description_Of_Cause}}">{{disaster.Date}}</a> 
+            -->        
+            <!--
+            <a href="http://localhost:3000/pdalo?Id=eq.{{disaster.Id}}">{{disaster.Date}}</a> 
+            -->
+            <a routerLink="/disaster/{{disaster.Id}}">{{disaster.Date}}</a>
+        </mat-cell>
+        
+
     </ng-container>
 
     <!-- Weight Column -->

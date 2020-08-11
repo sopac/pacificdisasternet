@@ -7,7 +7,9 @@ import { MainComponent } from './main/main.component';
 import { ExpertComponent } from './expert/expert.component';
 import { NewsComponent } from './news/news.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import {ShowDocumentComponent} from './show-document/show-document.component';
+import { ShowDocumentComponent } from './show-document/show-document.component';
+import { ShowDisasterComponent } from './show-disaster/show-disaster.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: 'main', component: MainComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'document/:id', component: ShowDocumentComponent },
+  { path: 'disaster/:id', component: ShowDisasterComponent },
+  { path: 'search/:query', component: SearchComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' }, // redirect to MainComponent
 ];
 

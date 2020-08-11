@@ -12,6 +12,8 @@ import { Disaster } from './disaster';
 import { Project } from './project';
 import { Chart1 } from './chart1';
 import { Document } from './document';
+import { Expert } from './expert';
+
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -29,6 +31,14 @@ export class AppService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
+  getDisaster(id: number): Observable<Disaster[]> {
+    //pdalo?id=eq.95984
+    const url = `${this.serviceUrl}`;
+    return this.http.get<Disaster[]>(url + "pdalo?Id=eq." + id).pipe(
+      tap(_ => this.log(`fetched single disaster`)),
+      catchError(this.handleError<Disaster[]>(`getDisaster`))
+    );
+  }
 
   getDocument(id: number): Observable<Document[]> {
     //document?id=eq.95984
@@ -65,10 +75,18 @@ export class AppService {
     );
   }
 
+  getExperts(): Observable<Expert[]> {
+    const url = `${this.serviceUrl}`;
+    return this.http.get<Expert[]>(url + "experts?order=Country").pipe(
+      tap(_ => this.log(`fetched experts`)),
+      catchError(this.handleError<Expert[]>(`getExperts`, []))
+    );
+  }
+
 
   getDisasters(): Observable<Disaster[]> {
     const url = `${this.serviceUrl}`;
-    return this.http.get<Disaster[]>(url + "pdalo?limit=100&order=Year.desc").pipe(
+    return this.http.get<Disaster[]>(url + "pdalo?order=Year.desc").pipe(
       tap(_ => this.log(`fetched disasters`)),
       catchError(this.handleError<Disaster[]>(`getDisasters`, []))
     );
@@ -130,6 +148,22 @@ export class AppService {
     return this.http.get<Counter[]>(url + "count_calendar").pipe(
       tap(_ => this.log(`fetched count`)),
       catchError(this.handleError<Counter[]>(`getCalendarCount`, []))
+    );
+  }
+
+  search(q: string): Observable<Document[]> {
+    const tokenList = q.split(' ');
+    let link = 'document?or=(';
+    for (const t of tokenList) {
+      link = link + 'title.phfts.' + t + ',description.phfts.' + t + ',varianttitle.phfts.' + t + ',relatednames.phfts.' + t + ',';
+    }
+    link = link.trim();
+    link = link.substr(0, link.length - 1);
+    link = link + ')';
+    const url = `${this.serviceUrl}` + link;
+    return this.http.get<Document[]>(url).pipe(
+      tap(_ => this.log(`searched document`)),
+      catchError(this.handleError<Document[]>(`search`, []))
     );
   }
 

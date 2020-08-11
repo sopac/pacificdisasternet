@@ -13,19 +13,20 @@
 <span>
     <mat-form-field class="example-form-field" style="width: 340px;">
         <!-- <mat-label>Search across PDN...</mat-label> -->
-        <input matInput type="text" [(ngModel)]="value">
-        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <input matInput type="text" [(ngModel)]="query">
+        <button mat-button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
             <mat-icon>close</mat-icon>
         </button>
 
     </mat-form-field>
     <span style="color:white;">...</span>
-    <button mat-raised-button color="primary">Search</button>
+    <button routerLink="/search/{{query}}" mat-raised-button color="primary">Search</button>
 </span>
 </div>
 
 
 <!-- Resources -->
+<div align="center">
 <h2>Resources</h2>
 
 <br />
@@ -61,12 +62,11 @@
         <mat-icon>comment</mat-icon>
         News
     </a>
-
-
-
 </span>
 
-<mat-divider></mat-divider>
+</div>
+
+
 
 <div class="card-container">
 

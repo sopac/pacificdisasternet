@@ -1,9 +1,16 @@
 ~/Projects/pdn
 postgrest postgrest.conf 
 
+SELECT * FROM document WHERE to_tsvector(title || ' ' || description || ' ' || varianttitle || ' ' || relatednames) @@ to_tsquery('jutta | litea')
+
+http://localhost:3000/document?or=(title.phfts.jutta,description.phfts.jutta,varianttitle.phfts.jutta,relatednames.phfts.jutta)
+
+http://localhost:3000/document?or=(title.phfts.jutta,description.phfts.jutta,varianttitle.phfts.jutta,relatednames.phfts.jutta,title.phfts.litea,description.phfts.litea,varianttitle.phfts.litea,relatednames.phfts.litea)
 
 http://localhost:3000/pdalo?limit=100&order=Year.desc
 
+
+create view count_disaster as select count(*) as "count" from pdalo;
 create view chart_disaster_country as select "Country" as "name", count(*) as "value" from pdalo group by "Country";
 create view chart_disaster_type as select "Event" as "name", count(*) as "value" from pdalo group by "Event";
 
@@ -16,7 +23,7 @@ ALTER TABLE pdalo ADD COLUMN "Year" INTEGER;
 select "Date", "Year" from pdalo;
 ---update pdalo set "Year" = substring("Date", 0, 5)::INTEGER;
 
-
+create view count_expert as select count(*) as "count" from experts;
 
 http://localhost:3000/media?select=title&limit=10&order=id.asc
 

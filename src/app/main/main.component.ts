@@ -14,7 +14,7 @@ import { AppService } from '../app.service';
 })
 export class MainComponent implements OnInit {
   title = 'Pacific Disaster Net and Pacific Damage Loss Assessment';
-  value = 'Search across PDN...';
+  query = '';
 
   documentCount: Counter[];
   disasterCount: Counter[];

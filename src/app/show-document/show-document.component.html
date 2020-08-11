@@ -1,4 +1,149 @@
-<p>show-document: {{id}}</p>
-<div *ngIf="doc">
-    <h3>{{doc[0].title}}</h3>
+<div align="center" *ngFor="let d of doc">
+    <p style="color: lightgray;">show-document: {{id}}</p>
+    <h3>{{d.title}}</h3>
+
+    <img src="http://54.79.9.134/doc/{{d.filename.replace('.pdf', '.png')}}" />
+
+    <hr />
+    <table id="container">
+        <tr>
+            <td style="width: 180px;">Description</td>
+            <td style="text-align: justify;">{{d.description}}</td>
+        </tr>
+
+        <tr *ngIf="d.varianttitle">
+            <td>Variant Title</td>
+            <td>{{d.varianttitle}}</td>
+        </tr>
+
+        <tr *ngIf="d.bibliographynote">
+            <td>Bibliography Note</td>
+            <td>{{d.bibliographynote}}</td>
+        </tr>
+
+
+        <tr *ngIf="d.catalougingsource">
+            <td>Catalouging Source</td>
+            <td>{{d.catalougingsource}}</td>
+        </tr>
+
+        <tr *ngIf="d.corporateauthor">
+            <td>Corporate Author</td>
+            <td>{{d.corporateauthor}}</td>
+        </tr>
+
+        <tr *ngIf="d.disaster">
+            <td>Related Disaster</td>
+            <td>{{d.disaster}}</td>
+        </tr>
+
+        <tr *ngIf="d.edition">
+            <td>Edition</td>
+            <td>{{d.edition}}</td>
+        </tr>
+
+        <tr *ngIf="d.filename">
+            <td>Filename</td>
+            <td>{{d.filename}}</td>
+        </tr>
+
+        <tr *ngIf="d.filesize">
+            <td>Filesize</td>
+            <td>{{d.filesize}}</td>
+        </tr>
+
+
+        <tr *ngIf="d.generalnote">
+            <td>General Note</td>
+            <td>{{d.generalnote}}</td>
+        </tr>
+
+        <tr *ngIf="d.geographicalareacode">
+            <td>Country</td>
+            <td>{{d.geographicalareacode}}</td>
+        </tr>
+
+        <tr *ngIf="d.isbn">
+            <td>ISBN</td>
+            <td>{{d.isbn}}</td>
+        </tr>
+
+        <tr *ngIf="d.issn">
+            <td>ISSN</td>
+            <td>{{d.issn}}</td>
+        </tr>
+
+        <tr *ngIf="d.physhicaldescription">
+            <td>Physhical Description</td>
+            <td>{{d.physhicaldescription}}</td>
+        </tr>
+
+        <tr *ngIf="d.placeofpublication">
+            <td>Place Of Publication</td>
+            <td>{{d.placeofpublication}}</td>
+        </tr>
+
+        <tr *ngIf="d.publicationday">
+            <td>Publication Date</td>
+            <td>{{d.publicationday}} - {{d.publicationmonth}} - {{d.publicationyear}}</td>
+        </tr>
+
+
+
+
+        <tr *ngIf="d.publisher">
+            <td>Publisher</td>
+            <td>{{d.publisher}}</td>
+        </tr>
+
+        <tr *ngIf="d.relatedcorporations">
+            <td>Related Corporations</td>
+            <td>{{d.relatedcorporations}}</td>
+        </tr>
+
+        <tr *ngIf="d.relatednames">
+            <td>Related Names</td>
+            <td>{{d.relatednames}}</td>
+        </tr>
+
+        <tr *ngIf="d.series">
+            <td>Series</td>
+            <td>{{d.series}}</td>
+        </tr>
+
+        <tr *ngIf="d.sourceofacquisition">
+            <td>Source Of Acquisition</td>
+            <td>{{d.sourceofacquisition}}</td>
+        </tr>
+
+        <tr *ngIf="d.tags">
+            <td>Tags</td>
+            <td>{{d.tags}}</td>
+        </tr>
+
+
+        <tr *ngIf="d.targetaudience">
+            <td>Target Audience</td>
+            <td>{{d.targetaudience}}</td>
+        </tr>
+
+        <tr *ngIf="d.uploaddate">
+            <td>Upload Date</td>
+            <td>{{d.uploaddate}}</td>
+        </tr>
+
+        <tr *ngIf="d.featured">
+            <td>Featured</td>
+            <td>{{d.featured}}</td>
+        </tr>
+
+    </table>
+
+    <hr />
+
+    <a mat-flat-button color="warn" style="color: white;" target="blank" href="http://54.79.9.134/doc/{{d.filename}}">
+        <mat-icon>book</mat-icon>
+        Download
+    </a>
+
 </div>

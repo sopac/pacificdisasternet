@@ -1,4 +1,5 @@
 export class Disaster {
+    Id: number;
     Date: string;
     Serial?: number;
     Event: string;

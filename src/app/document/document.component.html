@@ -1,1 +1,27 @@
-<p>document works!</p>
+<div align="center" style="width: 100%;">
+
+    <div *ngIf="documentCount">
+        Display {{page * 20 + 1}} - {{page * 20 + 20}} of {{documentCount[0].count}} Documents
+    </div>
+
+    <button mat-button color="primary" (click)="previous($event)">
+        << Previous</button>
+            <button mat-button color="primary" (click)="next($event)">Next >></button>
+
+            <hr />
+
+            <div align="left" style="width: 100%;" *ngFor="let d of documents">
+                <mat-icon>event</mat-icon>
+                <a style="text-align: left !important; text-decoration: none; width: 100%;" routerLink="/document/{{d.id}}">
+
+                    {{d.title}}
+
+                </a>
+                |
+                {{d.publicationyear}}
+            </div>
+
+
+
+
+</div>

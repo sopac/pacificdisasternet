@@ -1,12 +1,20 @@
 <div align="center">
-    <a href="{{link}}" style="text-decoration: none; color: gray;">Searching {{query}}</a>
+    <a href="{{link}}" style="text-decoration: none; color: gray;">Searching for <i>{{query}}</i> ...</a>
+    <br/>
+    <b>{{docs.length}}</b> Results Returned
     <hr/>
 </div>
+
+
 
 <div *ngFor="let d of docs">
     <a routerLink="/document/{{d.id}}">
         {{d.title}}
-    </a>
+    </a> | {{d.relatednames}} |  
+    <span *ngIf="d.corporateauthor">{{d.corporateauthor}} |</span>
+    <span *ngIf="d.geographicalareacode">{{d.geographicalareacode}} |</span>
+    
+    {{d.publicationyear}}
 
     <br /><br />
 </div>

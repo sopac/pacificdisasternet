@@ -9,6 +9,7 @@ import { NewsComponent } from './news/news.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ShowDocumentComponent } from './show-document/show-document.component';
 import { ShowDisasterComponent } from './show-disaster/show-disaster.component';
+import { ShowCalendarComponent } from './show-calendar/show-calendar.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent },
   { path: 'document/:id', component: ShowDocumentComponent },
   { path: 'disaster/:id', component: ShowDisasterComponent },
+  { path: 'calendar/:id', component: ShowCalendarComponent },
   { path: 'search/:query', component: SearchComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' }, // redirect to MainComponent
 ];

@@ -1,0 +1,3 @@
+ng build --prod --aot --base-href /
+scp -i ~/Dropbox/pacgeo.pem -C -r dist/pdn/* ubuntu@pdn:/var/www/html/
+echo Deployed

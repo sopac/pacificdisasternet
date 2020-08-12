@@ -1,76 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { Counter } from './counter';
-import { Featured } from './featured';
-import { LatestDocument } from './latest-document';
-import { RecentAlerts } from './recent-alerts';
+import { Country } from './country';
 import { AppService } from './app.service';
-
-
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title = 'Pacific Disaster Net and Pacific Damage Loss Assessment';
-  value = 'Search across PDN...';
 
-  ngOnInit() {
-  }
+  countries: Country[];
+  countrySelect = new FormControl();
+  selected = 'Tonga';
 
-  /*
-  documentCount: Counter[];
-  disasterCount: Counter[];
-  expertCount: Counter[];
-  calendarCount: Counter[];
-  featuredDocuments: Featured[];
-  latestDocuments: LatestDocument[];
-  alerts: RecentAlerts[];
 
   constructor(private service: AppService) { }
 
   ngOnInit() {
-    this.getCalendarCount();
-    this.getExpertCount();
-    this.getDisasterCount();
-    this.getDocumentCount();
-    this.getFeatured();
-    this.getLatestDocument();
-    this.getRecentAlerts();
+    this.getCountries();
   }
 
-
-  getRecentAlerts(): void {
-    this.service.getRecentAlerts().subscribe(alerts => this.alerts = alerts);
+  getCountries(): void {
+    this.service.getCountries().subscribe(countries => this.countries = countries);
   }
 
-  getLatestDocument(): void {
-    this.service.getLatestDocument().subscribe(latestDocuments => this.latestDocuments = latestDocuments);
-  }
-
-  getFeatured(): void {
-    this.service.getFeatured().subscribe(featuredDocuments => this.featuredDocuments = featuredDocuments);
-  }
-
-  getDocumentCount(): void {
-    this.service.getDocumentCount().subscribe(documentCount => this.documentCount = documentCount);
-  }
-
-  getDisasterCount(): void {
-    this.service.getDisasterCount().subscribe(disasterCount => this.disasterCount = disasterCount);
-  }
-
-  getExpertCount(): void {
-    this.service.getExpertCount().subscribe(expertCount => this.expertCount = expertCount);
-  }
-
-
-  getCalendarCount(): void {
-    this.service.getCalendarCount().subscribe(calendarCount => this.calendarCount = calendarCount);
-  }
-
-  */
 
 
 

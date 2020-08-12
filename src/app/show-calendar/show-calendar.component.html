@@ -1,1 +1,74 @@
-<p>show-calendar works!</p>
+<div align="center" *ngFor="let c of calendar">
+    <h3>{{c.title}}</h3>
+
+    <table>
+        
+        <tr>
+            <td style="width: 180px;">Calendar Year</td>
+            <td>{{c.calendaryear}}</td>
+        </tr>
+
+        <tr>
+            <td>Contacts</td>
+            <td>{{c.contacts}}</td>
+        </tr>
+
+        <tr>
+            <td>Start Date</td>
+            <td>{{c.startdate.replace("T00:00:00", "")}}</td>
+        </tr>
+
+        <!--
+        <tr>
+            <td>Start Time</td>
+            <td>{{c.starttime}}</td>
+        </tr>
+        -->
+
+        <tr>
+            <td>End Date</td>
+            <td>{{c.enddate.replace("T00:00:00", "")}}</td>
+        </tr>
+
+        <!--
+        <tr>
+            <td>End Time</td>
+            <td>{{c.endtime}}</td>
+        </tr>
+        -->
+
+        <tr>
+            <td>Venue</td>
+            <td>{{c.venue}}</td>
+        </tr>
+
+        <tr>
+            <td>Location</td>
+            <td>{{c.location}}</td>
+        </tr>
+
+        <tr>
+            <td>Country</td>
+            <td>Fiji</td>
+        </tr>
+
+        <tr>
+            <td>Invitation Only</td>
+            <td>{{c.invitationonly}}</td>
+        </tr>
+
+        <tr>
+            <td>Latitude/Longitude</td>
+            <td>{{c.latitude}} | {{c.longitude}}</td>
+        </tr>
+
+
+        <tr>
+            <td>Comments</td>
+            <td>{{c.comments}}</td>
+        </tr>
+
+    </table>
+
+
+</div>

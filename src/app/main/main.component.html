@@ -10,59 +10,59 @@
 
 
 <div align="center">
-<span>
-    <mat-form-field class="example-form-field" style="width: 340px;">
-        <!-- <mat-label>Search across PDN...</mat-label> -->
-        <input matInput type="text" [(ngModel)]="query">
-        <button mat-button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
-            <mat-icon>close</mat-icon>
-        </button>
+    <span>
+        <mat-form-field class="example-form-field" style="width: 340px;">
+            <!-- <mat-label>Search across PDN...</mat-label> -->
+            <input matInput type="text" [(ngModel)]="query">
+            <button mat-button *ngIf="query" matSuffix mat-icon-button aria-label="Clear" (click)="query=''">
+                <mat-icon>close</mat-icon>
+            </button>
 
-    </mat-form-field>
-    <span style="color:white;">...</span>
-    <button routerLink="/search/{{query}}" mat-raised-button color="primary">Search</button>
-</span>
+        </mat-form-field>
+        <span style="color:white;">...</span>
+        <button routerLink="/search/{{query}}" mat-raised-button color="primary">Search</button>
+    </span>
 </div>
 
 
 <!-- Resources -->
 <div align="center">
-<h2>Resources</h2>
+    <h2>Resources</h2>
 
-<br />
+    <br />
 
 
-<span *ngIf="documentCount">
-    <a mat-flat-button color="primary" style="color: white;" matBadgeColor="accent" matBadge="40" routerLink="/documents">
-        <mat-icon>book</mat-icon>
-        <span style="font-size: xx-small;">{{documentCount[0].count}}</span> | <b> Documents</b>
-    </a>
-    <span style="color:white;">.......</span>
-    <a mat-flat-button color="accent" style="color: white;" matBadgeColor="primary" matBadge="8" routerLink="/pdalo">
-        <mat-icon>error_outline</mat-icon>
-        <span style="font-size: xx-small;">{{disasterCount[0].count}}</span> | <b> Disasters</b>
-    </a>
-    <span style="color:white;">.........</span>
-    <a mat-flat-button color="warn" style="color: white;" matBadgeColor="primary" matBadge="5" routerLink="/experts">
-        <mat-icon>people</mat-icon>
-        <span style="font-size: xx-small;">{{expertCount[0].count}}</span> | <b> Experts</b>
-    </a>
-    <span style="color:white;">.........</span>
-    <a mat-flat-button color="primary" style="color: white;" matBadgeColor="accent" matBadge="3" routerLink="/calendar">
-        <mat-icon>event_avialable</mat-icon>
-        <span style="font-size: xx-small;">{{calendarCount[0].count}}</span> | <b> Calendar</b>
-    </a>
-    <span style="color:white;">.........</span>
-    <a mat-flat-button color="accent" style="color: white;" matBadgeColor="primary" matBadge="2" routerLink="/projects">
-        <mat-icon>more_vert</mat-icon>
-        Projects
-    </a>
-    <span style="color:white;">........</span>
-    <a mat-flat-button color="warn" style="color: white;" routerLink="/news">
-        <mat-icon>comment</mat-icon>
-        News
-    </a>
-</span>
+    <span *ngIf="documentCount">
+        <a mat-flat-button color="primary" style="color: white;" matBadgeColor="accent" matBadge="40" routerLink="/documents">
+            <mat-icon>book</mat-icon>
+            <span style="font-size: xx-small;">{{documentCount[0].count}}</span> | <b> Documents</b>
+        </a>
+        <span style="color:white;">.......</span>
+        <a mat-flat-button color="accent" style="color: white;" matBadgeColor="primary" matBadge="8" routerLink="/pdalo">
+            <mat-icon>error_outline</mat-icon>
+            <span style="font-size: xx-small;">{{disasterCount[0].count}}</span> | <b> Disasters</b>
+        </a>
+        <span style="color:white;">.........</span>
+        <a mat-flat-button color="warn" style="color: white;" matBadgeColor="primary" matBadge="5" routerLink="/experts">
+            <mat-icon>people</mat-icon>
+            <span style="font-size: xx-small;">{{expertCount[0].count}}</span> | <b> Experts</b>
+        </a>
+        <span style="color:white;">.........</span>
+        <a mat-flat-button color="primary" style="color: white;" matBadgeColor="accent" matBadge="3" routerLink="/calendar">
+            <mat-icon>event_avialable</mat-icon>
+            <span style="font-size: xx-small;">{{calendarCount[0].count}}</span> | <b> Calendar</b>
+        </a>
+        <span style="color:white;">.........</span>
+        <a mat-flat-button color="accent" style="color: white;" matBadgeColor="primary" matBadge="2" routerLink="/projects">
+            <mat-icon>more_vert</mat-icon>
+            Projects
+        </a>
+        <span style="color:white;">........</span>
+        <a mat-flat-button color="warn" style="color: white;" routerLink="/news">
+            <mat-icon>comment</mat-icon>
+            News
+        </a>
+    </span>
 
 </div>
 
@@ -76,7 +76,7 @@
             Featured Documents
         </h3>
 
-        <a *ngFor="let d of featuredDocuments" href="/document/{{d.id}}">
+        <a *ngFor="let d of featuredDocuments" routerLink="/document/{{d.id}}">
             {{d.title}}
             <br /><br />
         </a>
@@ -87,7 +87,7 @@
             <mat-icon>toc</mat-icon>
             Latest Documents
         </h3>
-        <a *ngFor="let d of latestDocuments" href="/document/{{d.id}}">
+        <a *ngFor="let d of latestDocuments" routerLink="/document/{{d.id}}">
             {{d.title}}
             <br /><br />
         </a>
@@ -98,7 +98,7 @@
             <mat-icon>track_changes</mat-icon>
             Current Alerts
         </h3>
-        <a *ngFor="let a of alerts" href="https://www.gdacs.org/report.aspx?eventtype={{a.gdacs_eventtype}}&eventid={{a.gdacs_eventid}}">
+        <a *ngFor="let a of alerts" target="blank" href="https://www.gdacs.org/report.aspx?eventtype={{a.gdacs_eventtype}}&eventid={{a.gdacs_eventid}}">
             {{a.title}}
             <br /><br />
         </a>
@@ -107,25 +107,42 @@
     <div class="card">
         <h3>
             <mat-icon>event</mat-icon>
-            Upcoming Events
+            Latest Events
         </h3>
-        <a>Test</a>
+        <a *ngFor="let c of calendar" routerLink="/calendar/{{c.id}}">
+            {{c.title}}
+            <br /><br />
+        </a>
+
     </div>
 
     <div class="card">
-        <h3>
+        <h3 style="text-align: center;">
             <mat-icon>book</mat-icon>
             Latest Disasters
         </h3>
-        <a>Test</a>
+        <a style="text-align: center;" *ngFor="let d of recentDisasters" routerLink="/disaster/{{d.Id}}">
+            <div align="center">
+                {{d.Description_Of_Cause}}<br />
+                {{d.Country}}
+                <br />
+                {{d.Date}}
+                <br /><br />
+            </div>
+        </a>
+
+
+
     </div>
 
     <div class="card">
-        <h3>
+        <h3 style="text-align: center;">
             <mat-icon>date_range</mat-icon>
             Latest News
         </h3>
-        <a>Test</a>
+        <div align="center">
+        No News
+        </div>
     </div>
 
 </div>

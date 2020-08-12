@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
@@ -62,7 +64,9 @@ import { SearchComponent } from './search/search.component';
     MatIconModule,
     MatDividerModule,
     MatBadgeModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

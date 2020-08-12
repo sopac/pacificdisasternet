@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Counter } from '../counter';
 import { Featured } from '../featured';
 import { LatestDocument } from '../latest-document';
+import { Calendar } from '../calendar';
 import { RecentAlerts } from '../recent-alerts';
+import { Disaster } from '../disaster';
 import { AppService } from '../app.service';
-
 
 
 @Component({
@@ -23,6 +24,8 @@ export class MainComponent implements OnInit {
   featuredDocuments: Featured[];
   latestDocuments: LatestDocument[];
   alerts: RecentAlerts[];
+  calendar: Calendar[];
+  recentDisasters: Disaster[];
 
   constructor(private service: AppService) { }
 
@@ -34,8 +37,17 @@ export class MainComponent implements OnInit {
     this.getFeatured();
     this.getLatestDocument();
     this.getRecentAlerts();
+    this.getCalendar();
+    this.getRecentDisasters();
   }
 
+  getCalendar(): void {
+    this.service.getCalendar().subscribe(calendar => this.calendar = calendar);
+  }
+
+  getRecentDisasters(): void {
+    this.service.getRecentDisasters().subscribe(recentDisasters => this.recentDisasters = recentDisasters);
+  }
 
   getRecentAlerts(): void {
     this.service.getRecentAlerts().subscribe(alerts => this.alerts = alerts);
@@ -60,7 +72,6 @@ export class MainComponent implements OnInit {
   getExpertCount(): void {
     this.service.getExpertCount().subscribe(expertCount => this.expertCount = expertCount);
   }
-
 
   getCalendarCount(): void {
     this.service.getCalendarCount().subscribe(calendarCount => this.calendarCount = calendarCount);

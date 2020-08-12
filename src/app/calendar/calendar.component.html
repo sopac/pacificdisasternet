@@ -1,1 +1,12 @@
-<p>calendar works!</p>
+
+<div *ngFor="let c of calendar" >
+<a routerLink="/calendar/{{c.id}}">
+    {{c.title}}
+    </a>
+    <br/>
+    {{c.venue}}, {{c.location}}
+    <br/>
+    <i>From</i> {{c.startdate.replace("T00:00:00", "")}} <i>To </i>  {{c.enddate.replace("T00:00:00", "")}}
+    <br /><br />
+
+</div>

@@ -111,4 +111,6 @@ gdacs_resources character varying(2500) COLLATE pg_catalog."default",
 );
 
 
-
+ng build --prod --aot --base-href /
+scp -i ~/Dropbox/pacgeo.pem -C -r dist/pdn/* ubuntu@pdn:/var/www/html/
+echo Deployed.

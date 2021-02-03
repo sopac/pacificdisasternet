@@ -1,1 +1,39 @@
-<p>show-news works!</p>
+<h3 align="center">News</h3>
+
+
+<div *ngFor="let n of news">
+
+    <p style="text-align: center;">
+        <b><u>{{n.title}}</u></b>
+    </p>
+
+
+    <table style="width: 100% !important;">
+        <tr>
+            <td style="width: 140px;"><b>Title</b></td>
+            <td>{{n.title}}</td>
+        </tr>
+        <tr>
+            <td><b>Date</b></td>
+            <td>{{n.date.split('T')[0]}}</td>
+        </tr>
+        <tr>
+            <td><b>Country</b></td>
+            <td>{{n.country}}</td>
+        </tr>
+        <tr>
+            <td><b>Country Code</b></td>
+            <td>{{n.country_code}}</td>
+        </tr>
+        <tr>
+            <td><b>Source</b></td>
+            <td>{{n.source}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><br/><a href="{{n.url}}" target="_blank">Open Link</a></td>
+        </tr>
+
+
+    </table>
+</div>

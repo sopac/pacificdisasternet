@@ -10,7 +10,9 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { ShowDocumentComponent } from './show-document/show-document.component';
 import { ShowDisasterComponent } from './show-disaster/show-disaster.component';
 import { ShowCalendarComponent } from './show-calendar/show-calendar.component';
+import { ShowNewsComponent } from './show-news/show-news.component';
 import { SearchComponent } from './search/search.component';
+import { CountryComponent } from './country/country.component';
 
 const routes: Routes = [
   { path: 'main', component: MainComponent },
@@ -20,9 +22,11 @@ const routes: Routes = [
   { path: 'experts', component: ExpertComponent },
   { path: 'news', component: NewsComponent },
   { path: 'calendar', component: CalendarComponent },
+  { path: 'country/:id', component: CountryComponent },
   { path: 'document/:id', component: ShowDocumentComponent },
   { path: 'disaster/:id', component: ShowDisasterComponent },
   { path: 'calendar/:id', component: ShowCalendarComponent },
+  { path: 'news/:id', component: ShowNewsComponent },
   { path: 'search/:query', component: SearchComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' }, // redirect to MainComponent
 ];

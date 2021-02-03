@@ -2,13 +2,28 @@
     <p style="color: lightgray;">show-document: {{id}}</p>
     <h3>{{d.title}}</h3>
 
-    <img src="http://54.79.9.134/doc/{{d.filename.replace('.pdf', '.png')}}" />
+    <img src="http://www.pacificdisaster.net/doc/{{d.filename.replace('.pdf', '.png')}}" />
 
     <hr />
     <table id="container">
         <tr>
             <td style="width: 180px;">Description</td>
             <td style="text-align: justify;">{{d.description}}</td>
+        </tr>
+
+        <tr *ngIf="d.authors">
+            <td>Author(s)</td>
+            <td>{{d.authors}}</td>
+        </tr>
+
+        <tr *ngIf="d.country">
+            <td>Country</td>
+            <td>{{d.country}}</td>
+        </tr>
+
+        <tr *ngIf="d.country_code">
+            <td>Country Code</td>
+            <td>{{d.country_code}}</td>
         </tr>
 
         <tr *ngIf="d.varianttitle">
@@ -59,7 +74,7 @@
         </tr>
 
         <tr *ngIf="d.geographicalareacode">
-            <td>Country</td>
+            <td>Geographical Area</td>
             <td>{{d.geographicalareacode}}</td>
         </tr>
 
@@ -141,7 +156,7 @@
 
     <hr />
 
-    <a mat-flat-button color="warn" style="color: white;" target="blank" href="http://54.79.9.134/doc/{{d.filename}}">
+    <a mat-flat-button color="warn" style="color: white;" target="blank" href="http://www.pacificdisaster.net/doc/{{d.filename}}">
         <mat-icon>book</mat-icon>
         Download
     </a>

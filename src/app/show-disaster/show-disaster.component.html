@@ -1,218 +1,218 @@
 <div align="center" *ngFor="let d of disaster">
     
-    <h3>{{d.Description_Of_Cause}} - {{d.Date}} - {{d.Country}}</h3>
+    <h3>{{d.description_of_cause}} - {{d.date}} - {{d.country}}</h3>
 
     <hr/>
 
     <table>
-        <tr>
+        <tr *ngIf="d.id">
             <td style="width: 280px;">Id</td>
-            <td>{{d.Id}}</td>
+            <td>{{d.id}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.date">
             <td>Date</td>
-            <td>{{d.Date}}</td>
+            <td>{{d.date}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.serial">
             <td>Serial</td>
-            <td>{{d.Serial}}</td>
+            <td>{{d.serial}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.event">
             <td>Event</td>
-            <td>{{d.Event}}</td>
+            <td>{{d.event}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.description_of_cause">
             <td>Description_Of_Cause</td>
-            <td>{{d.Description_Of_Cause}}</td>
+            <td>{{d.description_of_cause}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.country_code">
             <td>Country_Code</td>
-            <td>{{d.Country_Code}}</td>
+            <td>{{d.country_code}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.country">
             <td>Country</td>
-            <td>{{d.Country}}</td>
+            <td>{{d.country}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.code_level_1">
             <td>Code_Level_1</td>
-            <td>{{d.Code_Level_1}}</td>
+            <td>{{d.code_level_1}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.level_1">
             <td>Level_1</td>
-            <td>{{d.Level_1}}</td>
+            <td>{{d.level_1}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.code_level_2">
             <td>Code_Level_2</td>
-            <td>{{d.Code_Level_2}}</td>
+            <td>{{d.code_level_2}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.level_2">
             <td>Level_2</td>
-            <td>{{d.Level_2}}</td>
+            <td>{{d.level_2}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.location">
             <td>Location</td>
-            <td>{{d.Location}}</td>
+            <td>{{d.location}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.comments">
             <td>Comments</td>
-            <td>{{d.Comments}}</td>
+            <td>{{d.comments}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.cause">
             <td>Cause</td>
-            <td>{{d.Cause}}</td>
+            <td>{{d.cause}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.source">
             <td>Source</td>
-            <td>{{d.Source}}</td>
+            <td>{{d.source}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.magnitude">
             <td>Magnitude</td>
-            <td>{{d.Magnitude}}</td>
+            <td>{{d.magnitude}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.glideumber">
             <td>GLIDE Number</td>
-            <td>{{d.GLIDE_Number}}</td>
+            <td>{{d.glideumber}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.other_sectors">
             <td>Other Sectors</td>
-            <td>{{d.Other_Sectors}}</td>
+            <td>{{d.other_sectors}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.datacards">
             <td>DataCards</td>
-            <td>{{d.DataCards}}</td>
+            <td>{{d.datacards}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.deaths">
             <td>Deaths</td>
-            <td>{{d.Deaths}}</td>
+            <td>{{d.deaths}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.injured">
             <td>Injured</td>
-            <td>{{d.Injured}}</td>
+            <td>{{d.injured}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.missing">
             <td>Missing</td>
-            <td>{{d.Missing}}</td>
+            <td>{{d.missing}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.houses_destroyed">
             <td>Houses Destroyed</td>
-            <td>{{d.Houses_Destroyed}}</td>
+            <td>{{d.houses_destroyed}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.houses_damaged">
             <td>Houses Damaged</td>
-            <td>{{d.Houses_Damaged}}</td>
+            <td>{{d.houses_damaged}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.directly_affected">
             <td>Directly Affected</td>
-            <td>{{d.Directly_Affected}}</td>
+            <td>{{d.directly_affected}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.indirectly_affected">
             <td>Indirectly_Affected</td>
-            <td>{{d.Indirectly_Affected}}</td>
+            <td>{{d.indirectly_affected}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.relocated">
             <td>Relocated</td>
-            <td>{{d.Relocated}}</td>
+            <td>{{d.relocated}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.evacuated">
             <td>Evacuated</td>
-            <td>{{d.Evacuated}}</td>
+            <td>{{d.evacuated}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.losses_usd">
             <td>Losses_USD</td>
-            <td>{{d.Losses_USD}}</td>
+            <td>{{d.losses_usd}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.losses_local">
             <td>Losses_Local</td>
-            <td>{{d.Losses_Local}}</td>
+            <td>{{d.losses_local}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.education">
             <td>Education</td>
-            <td>{{d.Education}}</td>
+            <td>{{d.education}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.hospitals">
             <td>Hospitals</td>
-            <td>{{d.Hospitals}}</td>
+            <td>{{d.hospitals}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.damages_crops_ha">
             <td>Damages_Crops_Ha</td>
-            <td>{{d.Damages_Crops_Ha}}</td>
+            <td>{{d.damages_crops_ha}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.health_sector">
             <td>Health_Sector</td>
-            <td>{{d.Health_Sector}}</td>
+            <td>{{d.health_sector}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.agriculture">
             <td>Agriculture</td>
-            <td>{{d.Agriculture}}</td>
+            <td>{{d.agriculture}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.water_supply_sanitation">
             <td>Water Supply Sanitation</td>
-            <td>{{d.Water_Supply_Sanitation}}</td>
+            <td>{{d.water_supply_sanitation}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.sewerage">
             <td>Sewerage</td>
-            <td>{{d.Sewerage}}</td>
+            <td>{{d.sewerage}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.industries">
             <td>Industries</td>
-            <td>{{d.Industries}}</td>
+            <td>{{d.industries}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.communications">
             <td>Communications</td>
-            <td>{{d.Communications}}</td>
+            <td>{{d.communications}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.transportation">
             <td>Transportation</td>
-            <td>{{d.Transportation}}</td>
+            <td>{{d.transportation}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.power_energy">
             <td>Power/Energy</td>
-            <td>{{d.Power_Energy}}</td>
+            <td>{{d.power_energy}}</td>
         </tr>
 
-        <tr>
+        <tr *ngIf="d.year">
             <td>Year</td>
-            <td>{{d.Year}}</td>
+            <td>{{d.year}}</td>
         </tr>
 
 

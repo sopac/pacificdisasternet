@@ -32,4 +32,8 @@ export class Document {
     materialtype_id: number;
     user_id: number;
     featured: boolean;
+    authors: string;
+    country: string;
+    country_code: string;
+    country_id: number;
 }

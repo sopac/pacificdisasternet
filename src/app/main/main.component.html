@@ -1,5 +1,5 @@
 <!-- Highlight Card -->
-<div style="text-align: justify;" class="card highlight-card ">
+<div style="text-align: justify;" class="card highlight-card">
 
     <b>PDN</b> is an online platform for Disaster Risk Management and Climate Change documents, reports, alerts, data,
     projects
@@ -119,7 +119,7 @@
     <div class="card">
         <h3 style="text-align: center;">
             <mat-icon>book</mat-icon>
-            Latest Disasters
+            <!-- Latest Disasters -->
         </h3>
         <a style="text-align: center;" *ngFor="let d of recentDisasters" routerLink="/disaster/{{d.Id}}">
             <div align="center">
@@ -140,8 +140,14 @@
             <mat-icon>date_range</mat-icon>
             Latest News
         </h3>
-        <div align="center">
-        No News
+        <div align="center" *ngFor="let n of news">
+
+            <p style="text-align: left;">
+            <a routerLink="/news/{{n.id}}">
+                {{n.title}}
+            </a> 
+            </p>
+                <br/>
         </div>
     </div>
 

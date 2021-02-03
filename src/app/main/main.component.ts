@@ -5,6 +5,7 @@ import { LatestDocument } from '../latest-document';
 import { Calendar } from '../calendar';
 import { RecentAlerts } from '../recent-alerts';
 import { Disaster } from '../disaster';
+import { News } from '../news';
 import { AppService } from '../app.service';
 
 
@@ -26,6 +27,7 @@ export class MainComponent implements OnInit {
   alerts: RecentAlerts[];
   calendar: Calendar[];
   recentDisasters: Disaster[];
+  news: News[];
 
   constructor(private service: AppService) { }
 
@@ -39,6 +41,11 @@ export class MainComponent implements OnInit {
     this.getRecentAlerts();
     this.getCalendar();
     this.getRecentDisasters();
+    this.getLatestNews();
+  }
+
+  getLatestNews(): void {
+    this.service.getLatestNews().subscribe(news => this.news = news);
   }
 
   getCalendar(): void {

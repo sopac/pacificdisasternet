@@ -14,6 +14,8 @@ import { Document } from './document';
 import { Country } from "./country";
 import { Expert } from './expert';
 import { Calendar } from './calendar';
+import { CountryProfile } from './country-profile';
+import { News} from './news';
 
 import { MessageService } from './message.service';
 import { environment } from '../environments/environment';
@@ -38,10 +40,35 @@ export class AppService {
     }
   }
 
+  getLatestNews(): Observable<News[]> {
+    const url = `${this.serviceUrl}`;
+    return this.http.get<News[]>(url + "news?limit=10&order=date.desc").pipe(
+      tap(_ => this.log(`fetched latest news`)),
+      catchError(this.handleError<News[]>(`getLatestNews`, []))
+    );
+  }
+
+  getNewsByCountryCode(code: string): Observable<News[]> {
+    const url = `${this.serviceUrl}`;
+    return this.http.get<News[]>(url + "news?limit=5&country_code=eq." + code).pipe(
+      tap(_ => this.log(`fetched latest news by country code`)),
+      catchError(this.handleError<News[]>(`getNewsByCountryCode`, []))
+    );
+  }
+
+  getNews(id: number): Observable<News[]> {    
+    const url = `${this.serviceUrl}`;
+    return this.http.get<News[]>(url + "news?id=eq." + id).pipe(
+      tap(_ => this.log(`fetched single news`)),
+      catchError(this.handleError<News[]>(`getNews`))
+    );
+  }
+
+
   getDisaster(id: number): Observable<Disaster[]> {
     //pdalo?id=eq.95984
     const url = `${this.serviceUrl}`;
-    return this.http.get<Disaster[]>(url + "pdalo?Id=eq." + id).pipe(
+    return this.http.get<Disaster[]>(url + "pdalo?id=eq." + id).pipe(
       tap(_ => this.log(`fetched single disaster`)),
       catchError(this.handleError<Disaster[]>(`getDisaster`))
     );
@@ -62,6 +89,14 @@ export class AppService {
     return this.http.get<Document[]>(url + "document?id=eq." + id).pipe(
       tap(_ => this.log(`fetched single document`)),
       catchError(this.handleError<Document[]>(`getDocument`))
+    );
+  }
+
+  getCountryProfile(id: number): Observable<CountryProfile[]> {
+    const url = `${this.serviceUrl}`;
+    return this.http.get<CountryProfile[]>(url + "country_profile?id=eq." + id).pipe(
+      tap(_ => this.log(`fetched single country_profile`)),
+      catchError(this.handleError<CountryProfile[]>(`getCountryProfile`))
     );
   }
 
@@ -111,7 +146,7 @@ export class AppService {
 
   getCountries(): Observable<Country[]> {
     const url = `${this.serviceUrl}`;
-    return this.http.get<Country[]>(url + "country?limit=23").pipe(
+    return this.http.get<Country[]>(url + "pacific_countries").pipe(
       tap(_ => this.log(`fetched countries`)),
       catchError(this.handleError<Country[]>(`getCountries`, []))
     );
@@ -119,16 +154,43 @@ export class AppService {
 
   getExperts(): Observable<Expert[]> {
     const url = `${this.serviceUrl}`;
-    return this.http.get<Expert[]>(url + "experts?order=Country").pipe(
+    return this.http.get<Expert[]>(url + "experts?order=country").pipe(
       tap(_ => this.log(`fetched experts`)),
       catchError(this.handleError<Expert[]>(`getExperts`, []))
+    );
+  }
+
+  //experts?country_id=eq.37
+  getExpertsByCountryCode(id: number): Observable<Expert[]> {    
+    const url = `${this.serviceUrl}`;
+    return this.http.get<Expert[]>(url + "experts?country_id=eq." + id).pipe(
+      tap(_ => this.log(`fetched experts by country`)),
+      catchError(this.handleError<Expert[]>(`ExpertsByCountryCode`))
+    );
+  }
+
+  //document?country_id=eq.37&limit=15
+  getDocumentsByCountryId(id: number): Observable<Document[]> {    
+    const url = `${this.serviceUrl}`;
+    return this.http.get<Document[]>(url + "document?country_id=eq." + id + "&limit=10&order=publicationyear.desc").pipe(
+      tap(_ => this.log(`fetched single document`)),
+      catchError(this.handleError<Document[]>(`getDocument`))
+    );
+  }
+
+  //document?series=eq.Disaster%20Action%20Plans&country_id=eq.37
+  getDisasterPlansByCountryId(id: number): Observable<Document[]> {    
+    const url = `${this.serviceUrl}`;
+    return this.http.get<Document[]>(url + "document?series=eq.Disaster%20Action%20Plans&country_id=eq." + id).pipe(
+      tap(_ => this.log(`fetched single document`)),
+      catchError(this.handleError<Document[]>(`getDocument`))
     );
   }
 
 
   getDisasters(): Observable<Disaster[]> {
     const url = `${this.serviceUrl}`;
-    return this.http.get<Disaster[]>(url + "pdalo?order=Year.desc").pipe(
+    return this.http.get<Disaster[]>(url + "pdalo?order=date.desc").pipe(
       tap(_ => this.log(`fetched disasters`)),
       catchError(this.handleError<Disaster[]>(`getDisasters`, []))
     );
@@ -136,7 +198,7 @@ export class AppService {
 
   getRecentDisasters(): Observable<Disaster[]> {
     const url = `${this.serviceUrl}`;
-    return this.http.get<Disaster[]>(url + "pdalo?order=Year.desc&limit=6").pipe(
+    return this.http.get<Disaster[]>(url + "pdalo?order=date.desc&limit=6").pipe(
       tap(_ => this.log(`fetched recent disasters`)),
       catchError(this.handleError<Disaster[]>(`getRecentDisasters`, []))
     );
@@ -154,7 +216,7 @@ export class AppService {
 
   getLatestDocument(): Observable<LatestDocument[]> {
     const url = `${this.serviceUrl}`;
-    return this.http.get<LatestDocument[]>(url + "document?select=id,title,publicationyear,uploaddate&limit=5&order=id.desc").pipe(
+    return this.http.get<LatestDocument[]>(url + "document?select=id,title,publicationyear,uploaddate&limit=10&order=id.desc").pipe(
       tap(_ => this.log(`fetched latest document`)),
       catchError(this.handleError<LatestDocument[]>(`getLatestDocument`, []))
     );

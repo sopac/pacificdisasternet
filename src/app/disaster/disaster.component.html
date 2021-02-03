@@ -1,5 +1,13 @@
 <h3 style="text-align: center;">Pacific Damage and Loss Assessment Database</h3>
 
+<div align="center">
+    <a mat-flat-button color="primary" style="color: white;" matBadgeColor="accent" target="_blank" href="http://www.pacificdisaster.net:8080/superset/dashboard/1/">
+        <mat-icon>book</mat-icon>
+        <span>Analyse Data</span>
+    </a>    
+</div>
+<hr/>
+
 
 <ngx-charts-bar-horizontal [view]="view" [scheme]="colorScheme" [results]="disastersType" [gradient]="gradient"
     [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
@@ -15,7 +23,6 @@
 </ngx-charts-pie-chart>
 
 <br />
-
 
 
 <br />
@@ -40,7 +47,7 @@
             <!--
             <a href="http://localhost:3000/pdalo?Id=eq.{{disaster.Id}}">{{disaster.Date}}</a> 
             -->
-            <a routerLink="/disaster/{{disaster.Id}}">{{disaster.Date}}</a>
+            <a routerLink="/disaster/{{disaster.id}}">{{disaster.date}}</a>
         </mat-cell>
         
 
@@ -49,26 +56,26 @@
     <!-- Weight Column -->
     <ng-container matColumnDef="Description_Of_Cause">
         <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let disaster"> <b> {{disaster.Description_Of_Cause}} </b> </mat-cell>
+        <mat-cell *matCellDef="let disaster"> <b> {{disaster.description_of_cause}} </b> </mat-cell>
     </ng-container>
 
 
     <ng-container matColumnDef="Event">
         <mat-header-cell *matHeaderCellDef> Event </mat-header-cell>
-        <mat-cell *matCellDef="let disaster"> {{disaster.Event}} </mat-cell>
+        <mat-cell *matCellDef="let disaster"> {{disaster.event}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="Country">
         <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
-        <mat-cell *matCellDef="let disaster"> {{disaster.Country}} </mat-cell>
+        <mat-cell *matCellDef="let disaster"> {{disaster.country}} </mat-cell>
     </ng-container>
 
 
 
     <ng-container matColumnDef="Year">
         <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
-        <mat-cell *matCellDef="let disaster"> {{disaster.Year}} </mat-cell>
+        <mat-cell *matCellDef="let disaster"> {{disaster.year}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

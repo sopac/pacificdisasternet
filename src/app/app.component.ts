@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Country } from './country';
 import { AppService } from './app.service';
 import { FormControl } from '@angular/forms';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +16,13 @@ export class AppComponent implements OnInit {
 
   countries: Country[];
   countrySelect = new FormControl();
-  selected = 'Tonga';
+  selectedId = '';
 
 
-  constructor(private service: AppService) { }
+  constructor(private service: AppService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.getCountries();
@@ -25,6 +30,12 @@ export class AppComponent implements OnInit {
 
   getCountries(): void {
     this.service.getCountries().subscribe(countries => this.countries = countries);
+  }
+
+  onCountryChanged(e){
+    //console.log(this.selectedId);
+    this.router.navigateByUrl('/country/' + this.selectedId, {relativeTo: this.route})
+    
   }
 
 

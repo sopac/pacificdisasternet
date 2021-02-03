@@ -10,17 +10,23 @@
 
 
   <div style="margin-top: 20px;">
-  <mat-form-field appearance="fill">
-    <mat-label><b>Country Profile</b></mat-label>
-    <mat-select>     
-      <mat-option *ngFor="let c of countries">
-  <img src="assets/flags/{{c.iso}}.jpg" style="height: 20px;" />
-        {{c.name}}
+    <mat-form-field appearance="fill">
+      <mat-label><b>Country Profile</b></mat-label>
+      <mat-select [(value)]="selectedId" (selectionChange)="onCountryChanged($event)">
+        <mat-option *ngFor="let c of countries" [value]="c.id">
+          <img src="assets/flags/{{c.iso}}.jpg" style="height: 20px;" />
+          {{c.name}}
+          <!--
+          <a style="text-decoration: none; color: black;" routerLink="/country/{{c.id}}">
+            {{c.name}}
+          </a>
+          -->
 
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  </div>
 
   <img src="assets/undp.png" style="height: 68px;" />
 
@@ -35,17 +41,14 @@
 
 
 
-<a routerLink="/main">
-  <img src="assets/pdn_banner.png" style="height: 90px;" />
-</a>
+  <a routerLink="/main">
+    <img src="assets/pdn_banner.png" style="height: 90px;" />
+  </a>
   <br />
 
   <router-outlet></router-outlet>
 
-  <br/>
-
-
- 
+  <br />
 
 
 
@@ -53,16 +56,19 @@
 
 
 
-<footer style="width: 100%;">
-  <!-- Terminal -->
-  <div class="terminal" style="width: 100%;">
-    <p style="text-align: center; color: white; font-size: 80%; padding: 10px; width: 100%;">
-      &copy; 2020 Pacific Community (SPC), Disaster Resilience for Pacific Small Island Developing States (RESPAC)
-      Project, United Nations Development Programme (UNDP)
-      <br /><br />
-    </p>
-  </div>
-</footer>
+
+
+
+  <footer style="width: 100%;">
+    <!-- Terminal -->
+    <div class="terminal" style="width: 100%;">
+      <p style="text-align: center; color: white; font-size: 80%; padding: 10px; width: 100%;">
+        &copy; 2021 Pacific Community (SPC), Disaster Resilience for Pacific Small Island Developing States (RESPAC)
+        Project, United Nations Development Programme (UNDP)
+        <br /><br />
+      </p>
+    </div>
+  </footer>
 
 
 

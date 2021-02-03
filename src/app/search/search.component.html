@@ -1,8 +1,10 @@
 <div align="center">
     <a href="{{link}}" style="text-decoration: none; color: gray;">Searching for <i>{{query}}</i> ...</a>
-    <br/>
-    <b>{{docs.length}}</b> Results Returned
-    <hr/>
+    <br />
+    <span *ngIf="docs">
+        <b>{{docs.length}}</b> Results Returned
+    </span>
+    <hr />
 </div>
 
 
@@ -10,10 +12,12 @@
 <div *ngFor="let d of docs">
     <a routerLink="/document/{{d.id}}">
         {{d.title}}
-    </a> | {{d.relatednames}} |  
+    </a>
+    <br/> 
+    <span *ngIf="d.relatednames">{{d.relatednames}} | </span>
     <span *ngIf="d.corporateauthor">{{d.corporateauthor}} |</span>
     <span *ngIf="d.geographicalareacode">{{d.geographicalareacode}} |</span>
-    
+
     {{d.publicationyear}}
 
     <br /><br />

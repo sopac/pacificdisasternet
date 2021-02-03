@@ -32,6 +32,7 @@ import { ShowCalendarComponent } from './show-calendar/show-calendar.component';
 import { ShowExpertComponent } from './show-expert/show-expert.component';
 import { ShowNewsComponent } from './show-news/show-news.component';
 import { SearchComponent } from './search/search.component';
+import { CountryComponent } from './country/country.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { SearchComponent } from './search/search.component';
     ShowCalendarComponent,
     ShowExpertComponent,
     ShowNewsComponent,
-    SearchComponent
+    SearchComponent,
+    CountryComponent
   ],
   imports: [
     BrowserModule,

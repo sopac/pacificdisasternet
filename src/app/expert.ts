@@ -1,7 +1,10 @@
 export class Expert {
-    Name: string;
-    Title: string;
-    Country: string;
-    Email: string;
-    Ministry: string;
+    id: number;
+    name: string;
+    title: string;
+    country: string;
+    country_code?: string;
+    email: string;
+    ministry: string;
+    country_id?: number;
 }

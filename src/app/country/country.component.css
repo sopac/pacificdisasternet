@@ -1,0 +1,16 @@
+.mat-column-Country {
+    flex: none;
+    width: 60px;
+}
+
+.mat-column-Title {
+    text-align: left;
+    flex: none;
+    width: 34%;
+}
+
+.mat-column-Ministry {
+    text-align: left;
+    flex: none;
+    width: 20%;
+}

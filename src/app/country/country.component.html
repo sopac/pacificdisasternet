@@ -1,0 +1,113 @@
+<div align="center" *ngFor="let p of profile">
+    <h3>{{p.country}}</h3>
+    <h3>Country Profile</h3>
+    <img src="assets/flags/{{p.code}}.jpg" style="height: 120px;" />
+    <br />
+    <hr />
+
+
+
+
+    <table>
+        <tr>
+            <td style="font-weight: bold; width: 200px;">Focal Point Agency</td>
+            <td>{{p.focal_point}}</td>
+        </tr>
+        <tr *ngIf="p.website">
+            <td style="font-weight: bold; width: 200px;">Website</td>
+            <td><a href="{{p.website}}">{{p.website}}</a></td>
+        </tr>
+    </table>
+
+    <hr />
+
+    <div style="background-color: lightblue; padding: 5px;">
+        <b>Current National Action Plans</b>
+    </div>
+    <br />
+    <a href="{{p.plan_link_2}}">{{p.plan_title_1}}</a>
+    <br /><br />
+    <a href="{{p.plan_link_2}}">{{p.plan_title_2}}</a>
+
+    <br /><br />
+    <div style="background-color: lightblue; padding: 5px;">
+        <b>Contacts</b>
+    </div>
+    <br />
+
+    <!--
+    <div *ngFor="let e of experts">
+        {{e.name}}
+    </div>
+    -->
+
+    <mat-table *ngIf="experts" [dataSource]="experts" style="width: 120%; margin-left: -10%;" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let e"> <a style="text-decoration: none;" href="#"><b>{{e.name}}</b></a></mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Title">
+            <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+            <mat-cell *matCellDef="let e"> {{e.title}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Ministry">
+            <mat-header-cell *matHeaderCellDef> Ministry </mat-header-cell>
+            <mat-cell *matCellDef="let e"> {{e.ministry}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Country">
+            <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+            <mat-cell *matCellDef="let e"> {{e.country}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let e"> <a href="mailto:{{e.Email}}">{{e.email}}</a></mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+
+    <br />
+    <div style="background-color: lightblue; padding: 5px;">
+        <b>Latest News</b>
+    </div>
+        <div *ngFor="let n of news">
+           <br/>
+           <a routerLink="/news/{{n.id}}">{{n.title}}</a>
+           <br/>
+        </div>
+    
+    <br />
+
+
+    <br />
+    <div style="background-color: lightblue; padding: 5px;">
+        <b>Recent Literature</b>
+    </div>
+    <br />
+    
+    <div *ngFor="let d of actionPlans">
+        <a routerLink="/document/{{d.id}}">
+            <img style="height: 120px; border: 2px solid #999;" src="http://www.pacificdisaster.net/doc/{{d.filename.replace('.pdf', '.png')}}" />
+            <br />
+            {{d.title}}
+        </a>
+        <br /><br />
+    </div>
+
+    <div *ngFor="let d of documents">
+        <a routerLink="/document/{{d.id}}">
+            <img style="height: 120px; border: 2px solid #999;" src="http://www.pacificdisaster.net/doc/{{d.filename.replace('.pdf', '.png')}}" />
+            <br />
+            {{d.title}}
+        </a>
+        <br /><br />
+    </div>
+
+</div>
